@@ -1,0 +1,53 @@
+scrapy shell -s USER_AGENT='Mozilla/5.0' https://weixin.sogou.com/weixin?type=2&query=流浪地球&ie=utf8&s_from=input&_sug_=n&_sug_type_=&w=01019900&sut=43220&sst0=1550395178917&lkt=7%2C1550395135641%2C1550395178816
+运行爬虫：scrapy crawl Myweixin
+response.xpath('//*[@id="J_goodsList"]/ul/li[2]/div/div[4]/a/em/text()[2]').extract_first()
+
+
+分析：
+请求：https://weixin.sogou.com/weixin?type=2&query=流浪地球&ie=utf8&s_from=input&_sug_=n&_sug_type_=&w=01019900&sut=43220&sst0=1550395178917&lkt=7%2C1550395135641%2C1550395178816
+
+    article_title = scrapy.Field()  # 文章标题
+    article_urlx = scrapy.Field()   # 文章详情页URL
+    writer = scrapy.Field()         # 文章作者
+    time = scrapy.Field()           # 发布时间
+    intro = scrapy.Field()          # 文章简介
+    article_urly = scrapy.Field()   # 读取阅读原文的URL地址
+----------------------------------------------------------------
+
+
+
+
+
+
+-----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+response.xpath('//*[@id="advs"]/div/div[2]/a/@href').extract_first()
+
+
+状态
+//*[@id="advs"]/div/div[2]/a[1]/div[1]/span
+//*[@id="advs"]/div/div[2]/a[3]/div[1]/span
+//*[@id="advs"]/div/div[2]/a[4]/div[1]/span
+#advs > div > div.search_result.g9
+
+
+
+
+
+-------------------------------------------
+
+
+shell测试：scrapy shell -s USER_AGENT='Mozilla/5.0' https://search.jd.com/Search?keyword=iphone&enc=utf-8&wq=iphone
+运行爬虫：scrapy crawl my
+----------------------
+
+response.xpath('//*[@id="J_goodsList"]/ul/li[2]/div/div[4]/a/em/text()[2]').extract_first()
